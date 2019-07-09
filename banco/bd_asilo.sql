@@ -28,11 +28,13 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `cidade`
 --
 
-CREATE TABLE `cidade` (
-  `id_cidade` int(11) NOT NULL,
-  `id_estado` int(11) DEFAULT NULL,
-  `nome` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+CREATE TABLE Municipio (
+  Id 	 INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  Codigo INT		  NOT NULL,
+  Nome 	 VARCHAR(255) NOT NULL,
+  Uf	 CHAR(2)	  NOT NULL,
+  
+);
 
 -- --------------------------------------------------------
 
@@ -59,11 +61,14 @@ CREATE TABLE `conteudo_evento` (
 -- Estrutura da tabela `estado`
 --
 
-CREATE TABLE `estado` (
-  `id_estado` int(11) NOT NULL,
-  `nome` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sigla` varchar(2) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+CREATE TABLE Estado (
+    Id       INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    CodigoUf INT          NOT NULL,
+    Nome     VARCHAR (50) NOT NULL,
+    Uf       CHAR 	 (2)  NOT NULL,
+    Regiao   INT	      NOT NULL,
+    
+);
 
 -- --------------------------------------------------------
 
@@ -304,6 +309,38 @@ ALTER TABLE `prontuario`
 ALTER TABLE `relacao_tipodepessoa_pessoa`
   ADD CONSTRAINT `fk_pessoa2` FOREIGN KEY (`id_pessoa`) REFERENCES `pessoa` (`id_pessoa`),
   ADD CONSTRAINT `fk_tipo_pessoa` FOREIGN KEY (`id_tipo_pessoa`) REFERENCES `tipo_pessoa` (`id_tipo_pessoa`);
+  
+  
+  -- ESTADOS -----
+Insert into Estado (CodigoUf, Nome, Uf, Regiao) values (12, 'Acre', 'AC', 1);
+Insert into Estado (CodigoUf, Nome, Uf, Regiao) values (27, 'Alagoas', 'AL', 2);
+Insert into Estado (CodigoUf, Nome, Uf, Regiao) values (16, 'Amapá', 'AP', 1);
+Insert into Estado (CodigoUf, Nome, Uf, Regiao) values (13, 'Amazonas', 'AM', 1);
+Insert into Estado (CodigoUf, Nome, Uf, Regiao) values (29, 'Bahia', 'BA', 2);
+Insert into Estado (CodigoUf, Nome, Uf, Regiao) values (23, 'Ceará', 'CE', 2);
+Insert into Estado (CodigoUf, Nome, Uf, Regiao) values (53, 'Distrito Federal', 'DF', 5);
+Insert into Estado (CodigoUf, Nome, Uf, Regiao) values (32, 'Espírito Santo', 'ES', 3);
+Insert into Estado (CodigoUf, Nome, Uf, Regiao) values (52, 'Goiás', 'GO', 5);
+Insert into Estado (CodigoUf, Nome, Uf, Regiao) values (21, 'Maranhão', 'MA', 2);
+Insert into Estado (CodigoUf, Nome, Uf, Regiao) values (51, 'Mato Grosso', 'MT', 5);
+Insert into Estado (CodigoUf, Nome, Uf, Regiao) values (50, 'Mato Grosso do Sul', 'MS', 5);
+Insert into Estado (CodigoUf, Nome, Uf, Regiao) values (31, 'Minas Gerais', 'MG', 3);
+Insert into Estado (CodigoUf, Nome, Uf, Regiao) values (15, 'Pará', 'PA', 1);
+Insert into Estado (CodigoUf, Nome, Uf, Regiao) values (25, 'Paraíba', 'PB', 2);
+Insert into Estado (CodigoUf, Nome, Uf, Regiao) values (41, 'Paraná', 'PR', 4);
+Insert into Estado (CodigoUf, Nome, Uf, Regiao) values (26, 'Pernambuco', 'PE', 2);
+Insert into Estado (CodigoUf, Nome, Uf, Regiao) values (22, 'Piauí', 'PI', 2);
+Insert into Estado (CodigoUf, Nome, Uf, Regiao) values (33, 'Rio de Janeiro', 'RJ', 3);
+Insert into Estado (CodigoUf, Nome, Uf, Regiao) values (24, 'Rio Grande do Norte', 'RN', 2);
+Insert into Estado (CodigoUf, Nome, Uf, Regiao) values (43, 'Rio Grande do Sul', 'RS', 4);
+Insert into Estado (CodigoUf, Nome, Uf, Regiao) values (11, 'Rondônia', 'RO', 1);
+Insert into Estado (CodigoUf, Nome, Uf, Regiao) values (14, 'Roraima', 'RR', 1);
+Insert into Estado (CodigoUf, Nome, Uf, Regiao) values (42, 'Santa Catarina', 'SC', 4);
+Insert into Estado (CodigoUf, Nome, Uf, Regiao) values (35, 'São Paulo', 'SP', 3);
+Insert into Estado (CodigoUf, Nome, Uf, Regiao) values (28, 'Sergipe', 'SE', 2);
+Insert into Estado (CodigoUf, Nome, Uf, Regiao) values (17, 'Tocantins', 'TO', 1);
+  
+  
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
